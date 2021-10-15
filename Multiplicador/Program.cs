@@ -12,6 +12,7 @@ namespace Multiplicador
 
             string teclado = "";
             int nun1, nun2;
+            bool romper = false;
 
             //creamos un bucle para repetir el proceso hasta que se precione la tecla y o Y
 
@@ -42,8 +43,23 @@ namespace Multiplicador
                 }
                 //validamos para que el bucle funcione y se repita el proceso hasta precionar una letra diferente a y o Y
 
-                Console.WriteLine("desea continuar? Y/N ");
-                teclado = Console.ReadLine();
+                while (romper== false)//colocamos un while para obligar al usuario a precionar una de las dos teclas para seguir n/y
+                {
+                    Console.WriteLine("desea continuar? Y/N ");
+                    teclado = Console.ReadLine();
+                    if (teclado == "y" || teclado == "Y")
+                    {
+                        romper = false;
+                        break;
+                    }
+                    if (teclado == "n" || teclado == "N")
+                    {
+                        romper = true;
+                        break;
+                    }
+                    Console.WriteLine("tiene que precionar una de las dos teclas para continuar y/n");
+                }
+                
 
                 //la expresion || quiere decir "o" en español, en este caso ya sea minuscula o mayuscula seguira repitiendose
 
